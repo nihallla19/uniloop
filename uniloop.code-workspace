@@ -1,0 +1,23 @@
+{
+  "folders": [
+    { "name": "Pages", "path": "apps/web/src/app" },
+    { "name": "Components", "path": "apps/web/src/components" },
+    { "name": "Styles", "path": "apps/web/src/styles" },
+    { "name": "Images", "path": "apps/web/public" },
+    { "name": "Backend (API)", "path": "apps/api/app" },
+    { "name": "Docs", "path": "docs" },
+    { "name": "Whole project", "path": "." }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/.next": true,
+      "**/.venv": true,
+      "**/__pycache__": true,
+      "**/.mypy_cache": true,
+      "**/.ruff_cache": true,
+      "**/.pytest_cache": true,
+      "**/*.tsbuildinfo": true
+    }
+  }
+}

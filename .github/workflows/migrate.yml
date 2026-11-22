@@ -1,0 +1,21 @@
+name: Migrate
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        options: [preview, production]
+        required: true
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    defaults: { run: { working-directory: apps/api } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --locked --no-dev
+      - run: uv run alembic upgrade head
+        env:
+          DATABASE_URL_DIRECT: ${{ secrets.DATABASE_URL_DIRECT }}
